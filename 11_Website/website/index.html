@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     PERSOONLIJKE PROFIELPAGINA - Project 1 HBO-ICT (Open-ICT)
+     Maker: Harsha Kanaparthi
+     Sprint 1, week 36 (31 augustus t/m 4 september 2026)
+
+     Hoe dit bestand in elkaar zit:
+     - <header>  : bovenkant met mijn naam en het menu (user story 1)
+     - <main>    : alle inhoud, opgedeeld in <section>-blokken
+                   (user stories 2 t/m 5 en de wildcard user story)
+     - <footer>  : onderkant met het jaartal en de privacy-notitie
+     Elk blok heeft een eigen id (bijv. id="over-mij") zodat het
+     menu met ankertjes (#over-mij) naar het goede stuk kan springen.
+     ============================================================ -->
+<html lang="nl">
+<head>
+  <!-- UTF-8 zorgt dat Nederlandse tekens en leestekens goed staan -->
+  <meta charset="UTF-8">
+  <!-- viewport-regel nodig zodat de pagina op mobiel goed schaalt (user story 8) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Persoonlijke profielpagina van Harsha Kanaparthi, HBO-ICT student aan de HU Utrecht met interesse in cyber security en cloud.">
+  <title>Harsha Kanaparthi | Persoonlijke profielpagina</title>
+  <!-- Alle opmaak zit in een apart CSS-bestand (user story 6) -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Eigen logo (initialen HK) als tab-icoon -->
+  <link rel="icon" type="image/svg+xml" href="img/avatar.svg">
+</head>
+<body>
+  <!-- Skip-link: wie met het toetsenbord navigeert, kan meteen naar de inhoud.
+       Dit hoort bij de essentiële waarde toegankelijkheid (WCAG 2.1, W3C). -->
+  <a class="skip-link" href="#over-mij">Meteen naar de inhoud</a>
+
+  <!-- USER STORY 1: de bezoeker ziet direct bovenaan wie deze pagina maakte.
+       De header staat bovenaan en is zichtbaar zonder te scrollen. -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <!-- Mijn naam met eigen logo als herkenbaar startpunt -->
+      <a class="brand" href="#top">
+        <img class="avatar" src="img/avatar.svg" alt="Logo met de letters H en K van Harsha Kanaparthi">
+        <span class="brand-name">Harsha Kanaparthi</span>
+      </a>
+      <!-- Knop die op een smal scherm het menu open- en dichtklapt.
+           De JavaScript in js/script.js zet aria-expanded op true/false,
+           zodat ook een schermlezer weet of het menu open staat. -->
+      <button class="menu-button" id="menu-button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-streep"></span>
+        <span class="menu-streep"></span>
+        <span class="menu-streep"></span>
+        <span class="visually-hidden">Menu openen of sluiten</span>
+      </button>
+      <!-- Menu met ankertjes naar elk onderdeel van de pagina -->
+      <nav id="menu" class="site-nav" aria-label="Hoofdmenu">
+        <ul>
+          <li><a href="#over-mij">Over mij</a></li>
+          <li><a href="#interesses">Interesses</a></li>
+          <li><a href="#opleiding-werk">Opleiding en werk</a></li>
+          <li><a href="#certificaten">Certificaten</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- USER STORY 1: naam en een regel over wie ik ben, direct in beeld -->
+    <section class="hero" aria-labelledby="naam-kop">
+      <h1 id="naam-kop">Harsha Kanaparthi</h1>
+      <p class="tagline">Aspirerend cyber security- en cloud-engineer &bull; HBO-ICT student aan de HU University of Applied Sciences Utrecht</p>
+    </section>
+
+    <!-- USER STORY 2: korte introductietekst in een eigen onderdeel -->
+    <section id="over-mij" class="section" aria-labelledby="over-mij-kop">
+      <h2 id="over-mij-kop">Over mij</h2>
+      <div class="twee-kolommen">
+        <div class="tekstblok">
+          <p>
+            Welkom op mijn persoonlijke profielpagina. Ik ben Harsha, ik woon in
+            Amstelveen en ik studeer sinds september 2026 Information and
+            Communication Technology (HBO-ICT) aan de Hogeschool Utrecht. Binnen
+            de opleiding wil ik mij specialiseren in Cyber Security &amp; Cloud.
+          </p>
+          <p>
+            Techniek vind ik interessant omdat veilige netwerken, cloudplatformen
+            en goede IT-infrastructuren organisaties laten werken zonder dat zij
+            bang hoeven te zijn voor aanvallen of uitval. Daarom wil ik leren hoe
+            je netwerken beveiligt, cloudoplossingen ontwerpt met Microsoft Azure
+            en Amazon Web Services (AWS) en systemen beheert.
+          </p>
+          <p>
+            Voordat ik aan mijn bachelor begon, heb ik de mbo-4 opleiding Software
+            Development gedaan aan het ROC van Amsterdam. Tijdens mijn stages bij
+            Kompas Publishing en het ROC van Amsterdam werkte ik aan
+            webapplicaties, testte ik software en leerde ik agile samenwerken in
+            een team. Die ervaring neem ik mee in deze opleiding.
+          </p>
+        </div>
+        <!-- USER STORY 3: afbeelding die inhoudelijk bij mij past (symbool voor
+             mijn interesse in security en cloud). Het alt-attribuut beschrijft
+             de afbeelding voor mensen met een schermlezer. -->
+        <figure class="plaatje">
+          <img src="img/illustratie-cybersecurity.png"
+               alt="Illustratie van een laptop met een schild en een slot, omringd door wolken en netwerklijnen. Dit staat symbool voor mijn interesse in cyber security en cloud.">
+          <figcaption>Symbool voor waar ik dagelijks mee bezig wil zijn: systemen beveiligen en werken in de cloud.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- USER STORY 5: interesses gegroepeerd in één onderdeel, met lijsten -->
+    <section id="interesses" class="section section-alt" aria-labelledby="interesses-kop">
+      <h2 id="interesses-kop">Interesses</h2>
+      <div class="twee-kolommen">
+        <div>
+          <h3>ICT-onderwerpen waar ik energie van krijg</h3>
+          <ul class="lijst-met-ruimte">
+            <li>Cyber security: hoe organisaties zich beschermen tegen aanvallen van buitenaf.</li>
+            <li>Cloud computing met Microsoft Azure en Amazon Web Services (AWS).</li>
+            <li>Netwerken en netwerkbeveiliging, bijvoorbeeld met apparatuur van Cisco.</li>
+            <li>Linux en Windows Server als besturingssystemen voor servers.</li>
+            <li>System administration en het beheren van IT-infrastructuur.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Naast school</h3>
+          <ul class="lijst-met-ruimte">
+            <li>Kleine eigen webprojecten bouwen en daarbij nieuwe technieken uitproberen.</li>
+            <li>Certificaten halen, zoals Microsoft Azure AI Essentials en Ubuntu Linux.</li>
+            <li>Talen: ik spreek Nederlands, Engels, Hindi en Telugu.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- USER STORY 4: opleiding en werk per fase onder elkaar, met eigen koppen -->
+    <section id="opleiding-werk" class="section" aria-labelledby="opleiding-werk-kop">
+      <h2 id="opleiding-werk-kop">Opleiding en werk</h2>
+
+      <h3>HBO-ICT, Hogeschool Utrecht (2026 - nu)</h3>
+      <p>
+        Bachelor Information and Communication Technology, tribe Open-ICT.
+        Mijn beoogde specialisatie is Cyber Security &amp; Cloud. In semester 1
+        werk ik in sprints van twee weken aan projecten, te beginnen met deze
+        persoonlijke profielpagina.
+      </p>
+
+      <h3>MBO-4 Software Development, ROC van Amsterdam (2023 - 2026)</h3>
+      <p>
+        Afgerond in 2026. Ik leerde daar programmeren, werken met Git en
+        databases, en ontwikkelen volgens de beroepstaken van een
+        softwareontwikkelaar.
+      </p>
+
+      <h3>VMBO-KB, groene lijn, Yuverta (2019 - 2023)</h3>
+      <p>
+        Hier ontdekte ik dat ik graag met techniek en computers werk, waarna ik
+        bewust voor de mbo-opleiding Software Development koos.
+      </p>
+
+      <h3>Stage software development, ROC van Amsterdam (september 2025 - januari 2026)</h3>
+      <p>
+        Ik bouwde mee aan de website voor de Culturele INTROWEEK MBO 2026.
+        Mijn deel waren de aanmeldformulieren voor docenten en instellingen en
+        een koppeling die studenten aan culturele instellingen in Amsterdam
+        koppelde op locatie, capaciteit en aanbod.
+      </p>
+
+      <h3>Stage software development, Kompas Publishing, Haarlem (september 2024 - februari 2025)</h3>
+      <p>
+        Ik bouwde en testte applicaties in Python en JavaScript, maakte bestaande
+        code sneller en voegde generatieve AI toe aan de contentworkflows van de
+        uitgeverij. We werkten agile met codereviews en technische documentatie.
+      </p>
+    </section>
+
+    <!-- USER STORY 4 en 5: certificaten als aparte, herkenbare lijst -->
+    <section id="certificaten" class="section section-alt" aria-labelledby="certificaten-kop">
+      <h2 id="certificaten-kop">Certificaten</h2>
+      <ul class="lijst-met-ruimte">
+        <li>Microsoft Azure AI Essentials - Professional Certificate van Microsoft en LinkedIn.</li>
+        <li>Microsoft Security Essentials - Professional Certificate van Microsoft en LinkedIn.</li>
+        <li>Network Automation Professional Certificate - Arista Networks.</li>
+        <li>Ubuntu Linux Professional Certificate - Canonical.</li>
+        <li>Accounting Foundations - Professional Certificate van Xero.</li>
+      </ul>
+    </section>
+
+    <!-- USER STORY 4: contactgegevens overzichtelijk bij elkaar, als echte links -->
+    <section id="contact" class="section" aria-labelledby="contact-kop">
+      <h2 id="contact-kop">Contact</h2>
+      <p>Wil je iets vragen of samenwerken? Dit zijn de manieren om mij te bereiken:</p>
+      <ul class="contact-lijst">
+        <li>
+          <a href="mailto:harsha.kanaparthi20062@gmail.com">E-mail: harsha.kanaparthi20062@gmail.com</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/harshavardhan-kanaparthi-767ab3277" target="_blank" rel="noopener noreferrer">LinkedIn: harsha kanaparthi</a>
+        </li>
+        <li>
+          <a href="https://bio.site/harsha_knp" target="_blank" rel="noopener noreferrer">Mijn persoonlijke startpagina: bio.site/harsha_knp</a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/harsha_knp/" target="_blank" rel="noopener noreferrer">Instagram: harsha_knp</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- WILDCARD USER STORY: de bezoeker wil weten dat deze pagina niets
+         van hem opslaat. Daarom deze eerlijke notitie: geen cookies,
+         geen analytics, geen trackers. -->
+    <section id="privacy" class="section section-alt" aria-labelledby="privacy-kop">
+      <h2 id="privacy-kop">Privacy op deze pagina</h2>
+      <p>
+        Deze pagina gebruikt geen cookies, geen analytics en geen trackers.
+        De JavaScript in js/script.js draait alleen in jouw browser en stuurt
+        geen gegevens naar een server. Klik je op een link naar LinkedIn of
+        Instagram, dan geldt het privacybeleid van die site en niet het mijne.
+      </p>
+    </section>
+  </main>
+
+  <!-- Onderkant van de pagina: jaartal wordt door JavaScript ingevuld -->
+  <footer class="site-footer">
+    <p>
+      &copy; <span id="jaar">2026</span> Harsha Kanaparthi &bull; gemaakt met
+      HTML, CSS en JavaScript voor project 1 van HBO-ICT.
+    </p>
+  </footer>
+
+  <!-- Knop om terug naar boven te gaan, pas zichtbaar na scrollen
+       (bestuurd door js/script.js) -->
+  <button id="top-button" class="top-button" aria-label="Terug naar boven">
+    &uarr;
+  </button>
+
+  <!-- JavaScript onderaan, zodat de HTML eerst geladen is voordat het
+       script elementen opzoekt -->
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+/* ============================================================
+   STIJLBLAD VAN MIJN PERSOONLIJKE PROFIELPAGINA
+   Project 1 HBO-ICT - Harsha Kanaparthi
+   Sprint 1, week 36 (31 augustus t/m 4 september 2026)
+
+   Opbouw van dit bestand:
+   1. Basisinstellingen (kleuren, lettertype, maten)
+   2. Header en menu
+   3. Losse onderdelen (sections) van de pagina
+   4. Lijsten, afbeeldingen en knoppen
+   5. Footer en de terug-naar-boven-knop
+   6. Media queries: ander gedrag op smal scherm (user story 8)
+
+   Waarom ik overal rem gebruik in plaats van px:
+   rem volgt de lettergrootte van de browser mee. Als een bezoeker
+   inzoomt (bijv. 200%), schaalt alles mee en blijft de pagina
+   leesbaar. Dit was een verbeterpunt uit de feedback van Selim.
+   ============================================================ */
+
+/* ---------- 1. BASISINSTELLINGEN ---------- */
+
+/* Kleuren en maten op één plek, zodat ik ze overal hetzelfde kan
+   hergebruiken. Dit houdt de styling consistent (user story 6). */
+:root {
+  --achtergrond: #f4f6f9;      /* lichtgrijs-blauw, rustig voor de ogen */
+  --vlak-wit: #ffffff;         /* witte vlakken voor de onderdelen */
+  --tekst: #1c2b3a;            /* donkerblauw-grijs, goed leesbaar op licht */
+  --tekst-zacht: #45566b;      /* iets zachter voor bijschriften */
+  --blauw: #123a5c;            /* donkerblauw voor koppen en het menu */
+  --blauw-licht: #1f6f9e;      /* accentkleur voor links en randjes */
+  --rand: #d7dee7;             /* dunne lijntjes tussen onderdelen */
+  --wit: #ffffff;
+}
+
+/* Alle marges standaard op 0, daarna per element bewust weer aanzetten.
+   Zo weet ik precies waar elke witruimte vandaan komt. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* rand en padding rekenen mee in de breedte */
+}
+
+/* De html-lettergrootte is de basis van alle rem-maten. */
+html {
+  font-size: 100%;             /* normaal 16 px in de browser */
+  scroll-behavior: smooth;     /* rustig naar een ankertje scrollen */
+}
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; /* één basisletter voor alles (user story 6) */
+  background-color: var(--achtergrond);
+  color: var(--tekst);
+  line-height: 1.6;            /* ruimte tussen regels leest prettiger */
+}
+
+/* Tekstblokken niet te breed maken: lange regels lezen slecht.
+   Met ch geef ik de breedte in aantal tekens op (ongeveer 70). */
+p {
+  max-width: 70ch;
+}
+
+/* Koppen: duidelijke hiërarchie in grootte (user story 4) */
+h1 {
+  font-size: clamp(1.8rem, 4vw + 1rem, 3rem); /* schaalt mee met het scherm */
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.6rem;
+  color: var(--blauw);
+  margin-bottom: 0.9rem;
+  /* dun lijntje onder elke h2 maakt de onderdelen herkenbaar */
+  border-bottom: 0.15rem solid var(--blauw-licht);
+  padding-bottom: 0.35rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  color: var(--blauw);
+  margin: 1.2rem 0 0.4rem 0;
+}
+
+a {
+  color: var(--blauw-licht);
+}
+
+/* Links duidelijk markeren wanneer iemand met Tab navigeert.
+   Dit hoort bij toegankelijkheid (WCAG 2.1, W3C). */
+a:focus-visible,
+button:focus-visible {
+  outline: 0.2rem solid var(--blauw-licht);
+  outline-offset: 0.15rem;
+}
+
+/* Skip-link is normaal onzichtbaar en wordt pas zichtbaar bij
+   de eerste Tab-druk. Zo helpen we toetsenbordgebruikers. */
+.skip-link {
+  position: absolute;
+  left: -999rem;               /* ver buiten beeld */
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+  background: var(--vlak-wit);
+  padding: 0.5rem 0.8rem;
+  border: 0.1rem solid var(--blauw-licht);
+  z-index: 20;
+}
+
+/* Tekst die alleen voor schermlezers bedoeld is, visueel verbergen */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- 2. HEADER EN MENU ---------- */
+
+.site-header {
+  background-color: var(--blauw);
+  color: var(--wit);
+  position: sticky;            /* menu blijft bovenin meeschuiven */
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 62rem;
+  margin: 0 auto;              /* centreren op breed scherm */
+  padding: 0.7rem 1rem;
+  display: flex;               /* naam links, menu rechts */
+  flex-wrap: wrap;             /* op smal scherm netjes onder elkaar */
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--wit);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.avatar {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;          /* rond logo */
+}
+
+.site-nav ul {
+  list-style: none;            /* geen bolletjes in het menu */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+}
+
+.site-nav a {
+  color: var(--wit);
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.site-nav a:hover {
+  background-color: var(--blauw-licht); /* zichtbaar waar je staat */
+}
+
+/* De hamburgerknop is alleen op smal scherm nodig, dus standaard weg */
+.menu-button {
+  display: none;
+  background: none;
+  border: 0.1rem solid var(--wit);
+  border-radius: 0.3rem;
+  padding: 0.45rem 0.5rem;
+  cursor: pointer;
+  margin-left: auto;           /* knop rechts naast de naam */
+}
+
+/* De drie streepjes van de hamburger */
+.menu-streep {
+  display: block;
+  width: 1.3rem;
+  height: 0.15rem;
+  background: var(--wit);
+  margin: 0.22rem 0;
+}
+
+/* ---------- 3. ONDERDELEN (SECTIONS) ---------- */
+
+/* Grote gekleurde balk met mijn naam: direct zichtbaar zonder
+   scrollen, zoals user story 1 vraagt */
+.hero {
+  background-color: var(--blauw);
+  color: var(--wit);
+  text-align: center;
+  padding: 3rem 1rem 3.4rem 1rem;
+}
+
+.tagline {
+  margin: 0.8rem auto 0 auto;
+  max-width: 46rem;
+  font-size: 1.05rem;
+  color: #dbe7f2;
+}
+
+/* Elk onderdeel: wit vlak met ruimte eromheen (user story 4 en 6) */
+.section {
+  max-width: 62rem;
+  margin: 1.4rem auto;         /* witruimte tussen de onderdelen */
+  padding: 1.6rem 1.4rem;
+  background-color: var(--vlak-wit);
+  border: 0.06rem solid var(--rand);
+  border-radius: 0.5rem;
+}
+
+/* Om de beurt een lichtgrijs vlak, zodat onderdelen visueel
+   van elkaar gescheiden zijn (user story 4) */
+.section-alt {
+  background-color: #eef2f7;
+}
+
+/* Twee kolommen op breed scherm: tekst links, plaatje of tweede
+   lijst rechts. Flexbox zorgt dat dit op smal scherm vanzelf
+   onder elkaar gaat (user story 7 en 8). */
+.twee-kolommen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  align-items: flex-start;
+}
+
+.tekstblok {
+  flex: 2 1 20rem;             /* tekst krijgt meer ruimte */
+}
+
+.tekstblok p + p {
+  margin-top: 0.8rem;          /* ruimte tussen alinea's */
+}
+
+.plaatje {
+  flex: 1 1 16rem;             /* plaatje krijgt de rest */
+}
+
+/* ---------- 4. LIJSTEN, AFBEELDINGEN, KNOPPEN ---------- */
+
+/* Afbeelding schaalt mee met zijn kolom en wordt nooit vervormd
+   (acceptatiecriterium user story 3) */
+.plaatje img {
+  width: 100%;
+  max-width: 26rem;
+  height: auto;                /* verhouding blijft gelijk */
+  border-radius: 0.6rem;       /* zacht afgeronde hoeken */
+  border: 0.06rem solid var(--rand);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--tekst-zacht);
+}
+
+/* Lijsten met extra ruimte tussen de items (user story 5) */
+.lijst-met-ruimte {
+  margin: 0.6rem 0 0.4rem 1.2rem;
+}
+
+.lijst-met-ruimte li {
+  margin-bottom: 0.5rem;
+  max-width: 62ch;
+}
+
+.lijst-met-ruimte li::marker {
+  color: var(--blauw-licht);   /* opsommingsteken in de accentkleur */
+}
+
+/* Contactlijst zonder bolletjes, als bloklinks onder elkaar */
+.contact-lijst {
+  list-style: none;
+  margin-top: 0.8rem;
+}
+
+.contact-lijst li {
+  margin-bottom: 0.55rem;
+}
+
+.contact-lijst a {
+  display: inline-block;
+  padding: 0.45rem 0.8rem;
+  background-color: #e8eef5;
+  border: 0.06rem solid var(--rand);
+  border-radius: 0.4rem;
+  text-decoration: none;
+  color: var(--blauw);
+  max-width: 100%;
+  overflow-wrap: anywhere;     /* lange adressen breken netjes af */
+}
+
+.contact-lijst a:hover {
+  background-color: var(--blauw-licht);
+  color: var(--wit);
+}
+
+/* ---------- 5. FOOTER EN TERUG-NAAR-BOVEN ---------- */
+
+.site-footer {
+  background-color: var(--blauw);
+  color: #dbe7f2;
+  text-align: center;
+  padding: 1.1rem 1rem;
+  margin-top: 1.6rem;
+  font-size: 0.92rem;
+}
+
+/* Terug-naar-boven-knop: zwevend rechtsonder, standaard onzichtbaar.
+   JavaScript zet de class "zichtbaar" er pas op na 400 px scrollen. */
+.top-button {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--blauw-licht);
+  color: var(--wit);
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.top-button.zichtbaar {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- 6. MEDIA QUERIES (USER STORY 8) ---------- */
+
+/* Smal scherm (mobiel): menu wordt een uitklapbare kolom en de
+   twee kolommen gaan vanzelf onder elkaar door de flex-wrap hierboven. */
+@media (max-width: 44rem) {
+  .menu-button {
+    display: block;            /* hamburger pas zichtbaar op smal scherm */
+  }
+
+  .site-nav {
+    display: none;             /* menu standaard dicht op mobiel */
+    width: 100%;
+  }
+
+  /* JavaScript zet deze class op het menu wanneer er op de
+     hamburger is geklikt */
+  .site-nav.open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;    /* menu-items onder elkaar */
+    gap: 0.2rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .hero {
+    padding: 2.2rem 1rem 2.6rem 1rem;
+  }
+
+  .section {
+    margin: 1rem 0.7rem;       /* iets minder witruimte aan de zijkanten */
+    padding: 1.2rem 1rem;
+  }
+}
+
+/* Heel smal scherm (bijv. 320 px): letter iets kleiner en geen
+   rare uitstulpingen. Dankzij rem en max-width: 100% ontstaat er
+   geen horizontale scrollbar. */
+@media (max-width: 24rem) {
+  html {
+    font-size: 92%;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo met de letters H en K">
+  <!-- Eigen logo: cirkel met mijn initialen H en K, zelf getekend in SVG -->
+  <defs>
+    <linearGradient id="vlak" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123a5c"/>
+      <stop offset="1" stop-color="#1f6f9e"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#vlak)"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#f5f7fa" stroke-width="2"/>
+  <text x="32" y="41" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" fill="#f5f7fa" text-anchor="middle">HK</text>
+</svg>
