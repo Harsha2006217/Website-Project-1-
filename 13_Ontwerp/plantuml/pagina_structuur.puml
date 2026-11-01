@@ -1,0 +1,35 @@
+@startmindmap pagina_structuur
+' ============================================================
+' STRUCTUUR VAN DE PAGINA EN DE BESTANDEN
+' Project 1 HBO-ICT - Harsha Kanaparthi - sprint 1, week 36
+' Bovenste tak: de volgorde van onderdelen in index.html.
+' Onderste takken: de andere bestanden en wat erin zit.
+' ============================================================
+title Structuur van pagina en bestanden - Project 1
+
+* profielpagina Project 1
+** index.html
+*** header: logo HK, naam, nav met 5 ankertjes, hamburgerknop
+*** hero: h1 Harsha Kanaparthi + tagline (user story 1)
+*** section over-mij: 3 alinea's + illustratie (user story 2 en 3)
+*** section interesses: 2 lijsten (user story 5)
+*** section opleiding-werk: 5 blokjes met h3 (user story 4)
+*** section certificaten: lijst van 5 (user story 4)
+*** section contact: 4 bloklinks (user story 4)
+*** section privacy: notitie zonder cookies (wildcard user story)
+*** footer: jaartal via JavaScript
+** css/style.css
+*** blok 1 basis: kleuren als variabelen, rem-maten, contrast
+*** blok 2 header en menu, hamburger pas zichtbaar op mobiel
+*** blok 3 sections: witte vlakken, om de beurt grijs (section-alt)
+*** blok 4 lijsten, afbeelding en contactlinks
+*** blok 5 footer en terug-naar-boven-knop
+*** blok 6 media queries bij 44 rem en 24 rem (user story 8)
+** js/script.js
+*** menu open en dicht met classList en aria-expanded
+*** jaartal in de footer met getFullYear
+*** top-knop tonen na 400 pixel scrollen
+** map img
+*** illustratie-cybersecurity.png met alt-tekst
+*** avatar.svg als logo en tab-icoon
+@endmindmap

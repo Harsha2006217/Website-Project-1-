@@ -1,0 +1,61 @@
+@startuml wireframe_mobiel
+' ============================================================
+' WIREFRAME (SCHETS) VAN MIJN PROFIELPAGINA - SMAL SCHERM
+' Project 1 HBO-ICT - Harsha Kanaparthi - sprint 1, week 36
+' Op mobiel klapt het menu achter de hamburgerknop en gaan alle
+' kolommen onder elkaar. Dit tekende ik na de feedback van Selim
+' over zoomen en smalle schermen.
+' ============================================================
+title Schets profielpagina - smal scherm (mobiel, 320 px)
+
+salt
+{
+  {/ <b>HK Harsha Kanaparthi</b> | [=] }
+  ..
+  {
+    <b>Harsha Kanaparthi</b>
+    tagline in 2 regels
+  }
+  ..
+  {
+    <b>Over mij</b>
+    alinea 1 t/m 3 onder elkaar
+  }
+  ..
+  {
+    [Illustratie volle breedte]
+  }
+  ..
+  {
+    <b>Interesses</b>
+    . ICT-onderwerpen
+    . Naast school
+  }
+  ..
+  {
+    <b>Opleiding en werk</b>
+    5 blokjes onder elkaar
+  }
+  ..
+  {
+    <b>Certificaten</b>
+    . 5 items onder elkaar
+  }
+  ..
+  {
+    <b>Contact</b>
+    [E-mail]
+    [LinkedIn]
+    [bio.site]
+    [Instagram]
+  }
+  ..
+  {
+    <b>Privacy</b> - korte notitie
+  }
+  ..
+  {/ footer met jaartal }
+  ..
+  {^ [omhoog-pijl rechtsonder] }
+}
+@enduml

@@ -1,0 +1,68 @@
+@startuml wireframe_desktop
+' ============================================================
+' WIREFRAME (SCHETS) VAN MIJN PROFIELPAGINA - BREED SCHERM
+' Project 1 HBO-ICT - Harsha Kanaparthi - sprint 1, week 36
+' Dit is de schets die ik op dag 1 maakte voordat ik code ging
+' schrijven. Salt is de wireframe-taal van PlantUML.
+' ============================================================
+title Schets profielpagina - breed scherm (desktop)
+
+salt
+{
+  {/ <b>HK Harsha Kanaparthi</b> | Over mij | Interesses | Opleiding en werk | Certificaten | Contact }
+  ..
+  {
+    <size:24><b>Harsha Kanaparthi</b></size>
+    Aspirerend cyber security- en cloud-engineer - HBO-ICT student HU Utrecht
+  }
+  ..
+  {+
+    {
+      <b>Over mij</b>
+      Alinea 1: wie ben ik, wat studeer ik
+      Alinea 2: waarom security en cloud
+      Alinea 3: wat nam ik mee uit mbo en stages
+    }
+    |
+    {
+      [Illustratie: laptop met schild en slot]
+      Bijschrift: symbool voor security en cloud
+    }
+  }
+  ..
+  {+
+    {
+      <b>Interesses</b>
+      . lijst ICT-onderwerpen (5 items)
+    }
+    |
+    {
+      <b>Naast school</b>
+      . lijst eigen projecten, certificaten, talen
+    }
+  }
+  ..
+  {
+    <b>Opleiding en werk</b>
+    HBO-ICT Utrecht (2026 - nu)
+    MBO-4 Software Development ROC (2023 - 2026)
+    VMBO-KB Yuverta (2019 - 2023)
+    Stage ROC van Amsterdam (sep 2025 - jan 2026)
+    Stage Kompas Publishing (sep 2024 - feb 2025)
+  }
+  ..
+  {
+    <b>Certificaten</b> | lijst van 5 certificaten met uitgever
+  }
+  ..
+  {
+    <b>Contact</b> | [E-mail] [LinkedIn] [bio.site] [Instagram]
+  }
+  ..
+  {
+    <b>Privacy op deze pagina</b> | geen cookies, geen trackers
+  }
+  ..
+  {/ (c) jaartal Harsha Kanaparthi - gemaakt met HTML, CSS en JavaScript }
+}
+@enduml
